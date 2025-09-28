@@ -1,0 +1,19 @@
+#!name=GitHub Downloader
+#!desc=Download GitHub repository folder as ZIP archives
+#!icon=https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/c0/ad/96/c0ad96cb-f93e-66c1-2ba4-facfca8c715e/AppIcon-0-0-1x_U007epad-0-1-85-220.png/512x512bb.png
+#!author=Jackie
+#!homepage=https://t.me/iiMarkr
+#!tag=GitHub
+
+[Argument]
+token = input, "Personal access token", tag = PAT, desc = Personal access token
+
+[Rule]
+
+[Rewrite]
+
+[Script]
+http-request ^https:\/\/github\.com\/([^/]+)\/([^/]+)\/tree\/([^/]+)\/(.+)\.zip$ script-path=https://raw.githubusercontent.com/Honye/net-scripts/refs/heads/main/dist/github-download.js, timeout=60, tag=GitHub Downloader, argument=[{token}]
+
+[Mitm]
+hostname = github.com
