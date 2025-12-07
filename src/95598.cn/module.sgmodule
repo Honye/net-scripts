@@ -1,0 +1,11 @@
+#!name = 95598
+#!version = 1.1.0
+#!desc=95598.cn Virtual API
+#!arguments=USERNAME:username, PASSWORD:password
+#!arguments-desc=username and password of 95598.cn
+
+[Script]
+接口重写 = type=http-request, pattern=^https?:\/\/api\.wsgw-rewrite\.com\/electricity\/bill\/all, script-path=https://raw.githubusercontent.com/Honye/net-scripts/refs/heads/main/dist/95598.cn.js, requires-body=true, max-size=-1, timeout=60, argument={{{USERNAME}}}|{{{PASSWORD}}}
+
+[MITM]
+hostname = %APPEND% api.wsgw-rewrite.com
